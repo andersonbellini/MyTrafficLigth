@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Semáforo</title>
+	<meta charset="utf-8" />
+	
+    <style type="text/css">
+        div.well.box-content {
+            width: 23%;
+            margin: 1%;
+        }
+
+        .red {
+            width: 15px;
+            height: 15px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: orangered;
+        }
+
+		.yellow {
+            width: 15px;
+            height: 15px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: #ffe000;
+        }
+		
+        .green {
+            width: 15px;
+            height: 15px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: forestgreen;
+        }
+
+        .gray {
+            width: 15px;
+            height: 15px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: silver;
+        }
+    </style>
+	
+</head>
+
+<body>
+	<div style="width:100px;"> 
+		<div id="mkp1"></div>
+		<div id="mkp2"></div>
+		<div id="mkp3"></div>
+		<div id="msg" ></div>
+	</div>
+<script>
+	
+	//Main start execution
+		setTimeout(onFirst, 1000);
+		setTimeout(onSecond, 3000);
+		setTimeout(onthree, 9000);
+		setTimeout(cleanScreen, 12000);				
+	//Finished execution
+		
+	function onFirst(){
+		configMessages();
+		fillColor("mkp1","red");
+		fillColor("mkp2","gray");
+		fillColor("mkp3","gray");
+		document.querySelector("#msg").textContent = "STOP";
+		document.querySelector("#msg").style.color = "orangered";
+	}
+
+	function onSecond(){
+		configMessages();
+		fillColor("mkp1","gray");
+		fillColor("mkp2","yellow");
+		fillColor("mkp3","gray");
+		document.querySelector("#msg").textContent = "ATTENTION";
+		document.querySelector("#msg").style.color = "#ffe000";
+	}
+
+	function onthree(){
+		configMessages();
+		fillColor("mkp1","gray");
+		fillColor("mkp2","gray");
+		fillColor("mkp3","green");
+		document.querySelector("#msg").textContent = "GO !";
+		document.querySelector("#msg").style.color = "forestgreen";
+	}	
+
+	function configMessages(){
+		document.querySelector("#msg").textContent = "";
+		document.querySelector("#msg").style.fontWeight = "bold";
+		document.querySelector("#msg").style.fontSize = "10px";
+		
+		document.querySelector("#msg").style.border = "1px solid black";
+		document.querySelector("#msg").style.width = "100px";
+		document.querySelector("#msg").style.textAlign = "center";
+	}
+	
+	function fillColor(selectorHtml, classColor){
+		document.querySelector('#'+selectorHtml).className = classColor;
+		
+		//document.querySelector('#'+selectorHtml).style.border = "1px solid black";
+		document.querySelector('#'+selectorHtml).style.marginLeft = "37px";
+		document.querySelector('#'+selectorHtml).style.marginLeft = "37px";
+		document.querySelector('#'+selectorHtml).style.textAlign = "center";
+	}
+	
+	function cleanScreen()
+	{
+		document.querySelector("#mkp1").style.display = "none";
+		document.querySelector("#mkp2").style.display = "none";
+		document.querySelector("#mkp3").style.display = "none";
+		document.querySelector("#msg").style.display = "none";
+	}
+	
+</script>
+
+		
+</body>
+</html>
